@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../../styles/animations.css" />
+    <link rel="stylesheet" href="../../styles/flex.css" />
+    <link rel="stylesheet" href="../../styles/buttons.css" />
+    <link rel="stylesheet" href="../../styles/globalStyles.css" />
+   
+    <title>Git Search</title>
+  </head>
+  <body>
+    <main class="main flex">
+
+      <section class="section-infos flex flex-col items-center justify-center">
+        
+        <div class="section-infos-box flex flex-col">
+
+        <h1 class="section-infos-title">Git Search</h1>
+        
+        <p class="section-infos-description">Encontre e se conecte com profissionais de forma rápida e fácil </p>
+        
+        <div class="section-infos-recent-users flex items-center">
+
+          <h3 class="section-infos-list-title">Achados Recentemente:</h3>
+
+          <ul class="list-recent-researches flex">
+            
+            <!-- Criado via DOM -->
+
+          </ul>
+        </div>
+
+        </div>
+
+      </section>
+
+      <section class="section-search flex  items-center justify-center">
+
+          <div class="section-search-box flex flex-col">
+            <h2 class="section-search-title">Procurar por um usuário</h2>
+
+            <div class="section-search-box-userSearch   flex flex-col">
+              
+              <label for="" class="section-search-box-userSearch-label">Usuário github</label>
+              <input type="text" class="section-search-box-userSearch-input" placeholder="Digite um usuário do github aqui...">
+              <label for="" class="label-error-message">Usuário não encontrado</label>
+              <button class="section-search-box-userSearch-button" type="submit" disabled id="button-userSearch"><div  id="c-loader">Ver perfil do github</div> </button> 
+              
+            </div>
+          </div>
+
+      </section>
+
+
+
+
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
