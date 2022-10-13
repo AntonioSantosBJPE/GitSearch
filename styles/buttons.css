@@ -116,6 +116,7 @@
 .section-search-box-userSearch-button:disabled{
     background: rgba(214, 51, 108, 0.4);
     color: rgba(255, 255, 255, 0.35);
+    cursor:auto;
 }
 
 /* .section-search-box-userSearch-button:hover{

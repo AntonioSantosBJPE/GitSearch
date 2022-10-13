@@ -59,6 +59,10 @@ function createEvents(){
  
         buttonUserSearch.removeAttribute("disabled")
         errorMessage.classList = "label-error-message"
+
+        if (event.target.value.length === 0){
+            buttonUserSearch.setAttribute("disabled","")
+        }
     })
     
     buttonUserSearch.addEventListener("click",(event)=>{
