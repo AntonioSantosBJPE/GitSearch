@@ -70,11 +70,41 @@ function createEvents(){
     })
 }
 
-function addRecentuserLocalstorage(userLogin, userAvatar){
-    let arrTemp = JSON.parse(localStorage.recentUsers)
-    arrTemp.push({login:userLogin,urlImg:userAvatar})
-     localStorage.recentUsers = JSON.stringify(arrTemp)
- }
+function createRecentUser(index,arrTemp){
+    let li = document.createElement("li")
+    li.classList = "card-recent-user flex flex-col"
+    ul.appendChild(li)
+
+    let img = document.createElement("img")
+    img.src = arrTemp[index].urlImg
+    img.id = `card-recent-user-${index}`
+    img.value = arrTemp[index].login
+    li.appendChild(img)
+
+    
+    let buttonHover = document.createElement("button")
+    buttonHover.innerText = "Acessar este perfil"
+    li.appendChild(buttonHover)
+    buttonHover.value = arrTemp[index].login
+    buttonHover.classList = "button-hover-teste"
+
+        img.addEventListener("click",(event)=>{
+            window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
+        })
+
+        buttonHover.addEventListener("click",(event)=>{
+            window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
+        })
+
+        li.addEventListener("mouseover", (event)=>{
+            buttonHover.classList = "button-hover-teste button-hover-display"
+        })
+
+        li.addEventListener("mouseout", (event)=>{
+            buttonHover.classList = "button-hover-teste"
+        })
+}
+
 
 function createListRecentUsers(){
     
@@ -85,82 +115,26 @@ function createListRecentUsers(){
     } else if(arrTemp.length<3){
         for(let index=0; index<arrTemp.length; index++){
         
-            let li = document.createElement("li")
-            li.classList = "card-recent-user flex flex-col"
-            ul.appendChild(li)
-
-            let img = document.createElement("img")
-            img.src = arrTemp[index].urlImg
-            img.id = `card-recent-user-${index}`
-            img.value = arrTemp[index].login
-            li.appendChild(img)
-
-            
-            let buttonHover = document.createElement("button")
-            buttonHover.innerText = "Acessar este perfil"
-            li.appendChild(buttonHover)
-            buttonHover.value = arrTemp[index].login
-            buttonHover.classList = "button-hover-teste"
-
-                img.addEventListener("click",(event)=>{
-                    window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
-                })
-
-                buttonHover.addEventListener("click",(event)=>{
-                    window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
-                })
-
-                li.addEventListener("mouseover", (event)=>{
-                    buttonHover.classList = "button-hover-teste button-hover-display"
-                })
-
-                li.addEventListener("mouseout", (event)=>{
-                    buttonHover.classList = "button-hover-teste"
-                })
+            createRecentUser(index,arrTemp)
 
         }
 
     }else{
         for(let index=0; index<=2; index++){
           
-            let li = document.createElement("li")
-            li.classList = "card-recent-user flex flex-col"
-            ul.appendChild(li)
-
-            let img = document.createElement("img")
-            img.src = arrTemp[index].urlImg
-            img.id = `card-recent-user-${index}`
-            img.value = arrTemp[index].login
-            li.appendChild(img)
-
-            
-            let buttonHover = document.createElement("button")
-            buttonHover.innerText = "Acessar este perfil"
-            li.appendChild(buttonHover)
-            buttonHover.value = arrTemp[index].login
-            buttonHover.classList = "button-hover-teste"
-
-                img.addEventListener("click",(event)=>{
-                    window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
-                })
-
-                buttonHover.addEventListener("click",(event)=>{
-                    window.location.href = `../../pages/profile/index.html?user=${event.target.value}`
-                })
-
-                li.addEventListener("mouseover", (event)=>{
-                    buttonHover.classList = "button-hover-teste button-hover-display"
-                })
-
-                li.addEventListener("mouseout", (event)=>{
-                    buttonHover.classList = "button-hover-teste"
-                })
+           createRecentUser(index,arrTemp)
 
         }
            
     }
    
 }
+
+function addRecentuserLocalstorage(userLogin, userAvatar){
+    let arrTemp = JSON.parse(localStorage.recentUsers)
+    arrTemp.push({login:userLogin,urlImg:userAvatar})
+     localStorage.recentUsers = JSON.stringify(arrTemp)
+ }
 
 function startingLocalstorage(){
     let arrTemp = []
@@ -174,7 +148,6 @@ function startingLocalstorage(){
 
 window.addEventListener("DOMContentLoaded", (event)=>{
     startingLocalstorage()
-//  addRecentuserLocalstorage()
     createListRecentUsers()
     createEvents()
   })

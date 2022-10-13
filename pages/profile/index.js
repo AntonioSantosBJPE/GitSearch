@@ -9,6 +9,12 @@ async function getAPI(url) {
   }
   
   function Header(user) {
+    let bio
+    if (user.bio===null){
+      bio = "Usuário sem bio"
+    } else{
+      bio = user.bio
+    }
     return `
           <header class="header flex justify-between items-center">
              
@@ -18,7 +24,7 @@ async function getAPI(url) {
 
                 <div class="header-box-left-infos flex flex-col justify-around ">
                     <h3 class="header-name">${user.name}</h3>
-                    <h5 class="header-bio">${user.bio}</h5>
+                    <h5 class="header-bio">${bio}</h5>
                 </div>
              
             </div>
@@ -41,10 +47,17 @@ async function getAPI(url) {
 
 
   function Repository(user,repos) {
+    let description
+    if (repos.description===null){
+      description = "Repositório sem descrição"
+    }else{
+      description = repos.description
+    }
+    
     return `
           <li class="card-repository flex flex-col justify-between">
               <h3 class="card-repos-name">${repos.name}</h3>
-              <p class="card-repos-description">${repos.description} </p>
+              <p class="card-repos-description">${description} </p>
 
               <div class="card-repository-box-buttons flex">
               <button class="button-card-repos"><a href="${repos.html_url}" target="_blank">Repositório</a></button>
