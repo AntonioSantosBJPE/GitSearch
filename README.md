@@ -1,2 +1,2 @@
 # gitSearchBaseApp
-gitSearchBaseApp project developed in HTML, CSS and JS.
+Um projeto desenvolvido durante o cruso de formação da Kenzie Academy, onde foram utilizadas as seguintes tecnologias: HTML, CSS e JavaScript.
